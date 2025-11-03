@@ -1,0 +1,70 @@
+/* General Page Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Page Title */
+h4 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0056b3;
+}
+
+/* Table Styles */
+table {
+    width: 80%;
+    border-collapse: collapse; /* ensures borders and cell spacing line up perfectly */
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    align-content: center;
+    table-layout: fixed; /* ensures all columns stay aligned */
+}
+
+/* Table Header */
+table thead th {
+    background-color: #0056b3;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding: 50px 50px;
+}
+
+/* Table Cells */
+table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Make sure header & data align perfectly */
+table th, table td {
+    width: auto;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Alternate Row Colors */
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover Effect */
+table tbody tr:hover {
+    background-color: #e9f3ff;
+}
+
+/* Center align first column only */
+table th:first-child,
+table td:first-child {
+    text-align: center;
+    width: 60px;
+}

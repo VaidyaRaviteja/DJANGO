@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+    <link href="{% static 'CSS/styles.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <h4>Employees List</h4>
+    <table>
+        <thead></thead>
+        <tr>
+            <th>S.No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for e in employees %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td> <a href="{% url 'employee_details' e.id %}">{{e.first_name}}</a> </td>
+                <td>{{e.last_name}}</td>
+                <td>{{e.phone_number}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
