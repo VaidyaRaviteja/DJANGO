@@ -1,0 +1,17 @@
+# Environment variables
+.env
+
+# Python cache and build files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# Static files (optional, since Render will collect them)
+staticfiles/
+
+# VS Code settings (optional)
+.vscode/

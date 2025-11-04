@@ -18,6 +18,8 @@ import pymysql
 pymysql.install_as_MySQLdb()
 from dotenv import load_dotenv
 load_dotenv()
+print("DEBUG: DATABASE_URL =", os.getenv("DATABASE_URL"))
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,20 +115,24 @@ WSGI_APPLICATION = 'Employees.wsgi.application'
 #     }
 # }
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'Rathan_db'),
-        'USER': os.getenv('DB_USER', 'root'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'root'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '3306'),
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+if os.getenv("DATABASE_URL"):
+    # Render (PostgreSQL)
+    DATABASES = {
+        'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"), conn_max_age=600)
     }
-}
+    print("✅ Using Render PostgreSQL database")
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.getenv('DB_NAME', 'Rathan_db'),
+            'USER': os.getenv('DB_USER', 'root'),
+            'PASSWORD': os.getenv('DB_PASSWORD', 'root'),
+            'HOST': os.getenv('DB_HOST', 'localhost'),
+            'PORT': os.getenv('DB_PORT', '3306'),
+        }
+    }
+    print("⚠️ Using local MySQL database")
 
 # DATABASES = {
 #     'default': dj_database_url.config(
@@ -134,6 +140,7 @@ DATABASES = {
 #         conn_max_age=600,
 #     )
 # }
+
 
 
 # Password validation
