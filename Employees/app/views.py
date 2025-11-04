@@ -17,3 +17,19 @@ def employee_details(request,pk):
         'employee':employee,
     }
     return render(request,'employee_details.html',context)
+
+# app/views.py
+from django.contrib.auth import get_user_model
+from django.http import HttpResponse
+
+def create_admin(request):
+    User = get_user_model()
+    if not User.objects.filter(username="root").exists():
+        User.objects.create_superuser(
+            username="root",
+            email="root@gmail.com",
+            password="root"
+        )
+        return HttpResponse("✅ Superuser created successfully.")
+    else:
+        return HttpResponse("⚠️ Superuser 'admin' already exists.")
