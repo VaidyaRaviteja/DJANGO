@@ -12,9 +12,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 # import environ
+from dotenv import load_dotenv
 import dj_database_url
 import os
 
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,8 +36,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 
-ALLOWED_HOSTS = ['*']
-
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-98o0.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -97,7 +100,7 @@ DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv("DATABASE_URL"),
         conn_max_age=600,
-        ssl_require=False
+        ssl_require=True
     )
 }
 
