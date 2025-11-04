@@ -38,8 +38,18 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 # DEBUG = True
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-1-qtru.onrender.com']
 
+CSRF_TRUSTED_ORIGINS = ['https://django-1-qtru.onrender.com']
+
+
+# Important for Render’s HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Optional: ensures admin login cookie is valid across HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # DEBUG = os.getenv('DEBUG', 'False') == 'True'
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
