@@ -1,29 +1,12 @@
-HEAD
-# Project_1
+# Employee directory with Django
 
-A Django project using MySQL as the database.
+The Employees project contains a Django employee app. Follow the detail route into the app to see how a request for an employee is handled.
 
-## Setup
-1. Create a virtual environment
-2. Install dependencies using `pip install -r requirements.txt`
-3. Add your database credentials in `.env`
-4. Run migrations with `python manage.py migrate`
-5. Start the server using `python manage.py runserver`
+- [Employee URL patterns](./Employees/app/urls.py)
+- [Application code](./Employees/app)
+- [Page templates](./Employees/templates)
+- [Python dependencies](./Employees/requirements.txt)
 
-# 🐍 Django Projects – From Basic to Advanced
+## Local setup
 
-Welcome to my collection of **Django projects** designed to help you learn Django step-by-step — from **basic** to **advanced** level.  
-Each project in this repository is beginner-friendly, well-structured, and perfect for learning Django by building.
-
----
-
-## 🚀 What's Inside
-
-This repository includes projects divided into three difficulty levels:
-
-- 🧠 **Basic Projects** – Beginner friendly 
-- ⚙️ **Intermediate Projects** – CRUD apps
-- 🧩 **Advanced Projects** – REST APIs
-
----
- ac24ea2105b661870540d89d59bbb7a41005641c
+Create and activate a Python virtual environment, then change into `Employees/` and install the dependencies with `python -m pip install -r requirements.txt`. Configure the project’s database settings before running `python manage.py migrate` and `python manage.py runserver`.
